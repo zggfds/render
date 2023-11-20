@@ -38,6 +38,7 @@ def reg():
 	else:
 		y.mkdir(a)
 		y.mkdir(a+"/"+b+"pass")
+		y.mkdir(a+"/"+c+"full")
 		return 'pass'
 
 
