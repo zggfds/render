@@ -2,3 +2,5 @@ flask
 yadisk
 gunicorn==19.7.1
 flask_sqlalchemy
+urllib.request
+werkzeug.utils
