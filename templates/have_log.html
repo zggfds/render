@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная страница а че
+{% endblock %}
+
+{% block body %}
+
+
+<h1>Вы вошли добро пожаловать вот 10 фото</h1>
+<img src="{{url_for('static', filename='foto/0.png')}}">
+<img src="{{url_for('static', filename='foto/1.png')}}">
+<img src="{{url_for('static', filename='foto/2.png')}}">
+<img src="{{url_for('static', filename='foto/3.png')}}">
+<img src="{{url_for('static', filename='foto/4.png')}}">
+<img src="{{url_for('static', filename='foto/5.png')}}">
+<img src="{{url_for('static', filename='foto/6.png')}}">
+<img src="{{url_for('static', filename='foto/7.png')}}">
+<img src="{{url_for('static', filename='foto/8.png')}}">
+<img src="{{url_for('static', filename='foto/9.png')}}">
+
+
+{% endblock %}
