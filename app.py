@@ -45,7 +45,7 @@ def index():
             print(i, one)
 
 
-        return redirect('/prof')
+        return render_template("have_log.html")
         #страница с загрузкой фото
     else:
         print(")")
