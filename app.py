@@ -37,7 +37,7 @@ def index():
         count = count - 1
 
         print(x)
-        for i in range(10):
+        for i in range(5):
             one = list(y.listdir("/Admin123"))[random.randint(0, count)]["name"]
             p.append(one)
             y.download("/Admin123/" + one, "static/foto/"+str(i) + '.png')
