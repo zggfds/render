@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+страница входа
+{% endblock %}
+
+{% block body %}
+
+<h1>Регистрация!<h1>
+<main class="form-signin w-100 m-auto">
+  <form method="POST" action="/run_reg">
+    <input class="name" name="name" placeholder="Введите ваше Ник">
+
+    <input class="pass" name="pass" placeholder="Введи пароль" type="password">
+
+    <input class="name" name="fullname" placeholder="Введи Настоящие имя">
+
+    <input type="submit" value="Зарегистрироватся">
+  </form>
+</main>
+
+{% endblock %}

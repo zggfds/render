@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная страница а че
+{% endblock %}
+
+{% block body %}
+
+
+<h1>Вы вошли добро пожаловать {{name}}</h1>
+
+{% for imge in file %}
+<img width="400" height="330" src="{{imge}}" alt="" >
+{% endfor %}
+
+
+{% endblock %}
