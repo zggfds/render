@@ -33,7 +33,7 @@ def index():
         y.download("/Admin123/photo"+p, "static/foto/down.zip")
         with zipfile.ZipFile('static/foto/down.zip', 'r') as zip_ref:
             zip_ref.extractall('static/foto')
-        path = "static/foto/Admin123/photo"+p
+        path = "static/foto/photo"+p
         dir_list = os.listdir(path)
         statement = ['static/foto/photo'+ p + food for food in dir_list]
         print(statement)
