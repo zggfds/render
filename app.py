@@ -35,7 +35,7 @@ def index():
             zip_ref.extractall('static/foto')
         path = "static/foto/Admin123/photo"+p
         dir_list = os.listdir(path)
-        statement = ['static/foto/Admin123/' + food for food in dir_list]
+        statement = ['static/foto/Admin123/photo'+ p + food for food in dir_list]
         print(statement)
         return render_template("have_log.html", file=statement, name = user_prof1)
         #страница с загрузкой фото
