@@ -138,7 +138,7 @@ def upload_image():
             print(filename)
             rand = str(random.randint(0, 10000))
             y.upload("static/uploads/" + filename, "/Admin123/" + user_prof + "_foto" + rand + ".jpg")
-            os.remove("static/uploads/" + filename)
+            
         else:
             flash('Allowed image types are -> png, jpg, jpeg, gif')
             return redirect(request.url)
