@@ -28,7 +28,7 @@ def index():
 
     print(user_prof2)
     if user_prof2:
-        p = random.randint(1,8)
+        p = random.randint(1,9)
         p = str(p)
         y.download("/Admin123/photo"+p, "static/foto/down.zip")
         with zipfile.ZipFile('static/foto/down.zip', 'r') as zip_ref:
