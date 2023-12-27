@@ -68,10 +68,12 @@ def log():
     user_prof = request.form['name']
     session['my_var'] = user_prof
     session['my_var2'] = True
+    session['my_var2'] = False
     b = request.form['pass']
 
     if y.exists("/"+user_prof):
         if y.exists("/"+user_prof+"/"+b+"pass"):
+            session['my_var2'] = True
             return redirect("/up")
         else:
             return "password don t work"
