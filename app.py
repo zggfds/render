@@ -67,7 +67,7 @@ def log():
     global user_prof
     user_prof = request.form['name']
     session['my_var'] = user_prof
-    session['my_var2'] = True
+    
     session['my_var2'] = False
     b = request.form['pass']
 
