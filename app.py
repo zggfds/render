@@ -24,7 +24,7 @@ def index():
     print(user_prof1)
 
 
-    user_prof2 = session.get('my_var')
+    user_prof2 = session.get('my_var2')
 
     print(user_prof2)
     if user_prof2:
