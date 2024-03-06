@@ -8,7 +8,7 @@ import random
 from PIL import Image
 import time
 import zipfile
-y = yadisk.YaDisk(token='y0_AgAAAABjABpGAAj5-wAAAADZLL3Dq51QeiuoR9CIJp2u6hgciQAov5s')
+y = yadisk.YaDisk(token='y0_AgAAAABjABpGAAteYwAAAAD8h3OKAAAf5oVS6dJNT7ZyxC1l7Vqy124Oug')
 app = Flask(__name__)
 
 
@@ -28,7 +28,7 @@ def index():
 
     print(user_prof2)
     if user_prof2:
-        p = random.randint(1,10)
+        p = random.randint(1,1)
         p = str(p)
         y.download("/Admin123/photo"+p, "static/foto/down.zip")
         with zipfile.ZipFile('static/foto/down.zip', 'r') as zip_ref:
