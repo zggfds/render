@@ -12,6 +12,11 @@
 {% for imge in file %}
 <img width="400" height="330" src="{{imge}}" alt="" >
 {% endfor %}
+{% for imge in file %}
+<video>
+ <source src="{{imge}}">
+</video>
+{% endfor %}
 
 
 {% endblock %}
