@@ -141,7 +141,7 @@ def upload():
             msg  = 'File successfully uploaded to /static/uploads! он на рендере не выходи'
             x = random.randint(1,10000)
 
-            y.upload("static/uploads/"+filename, "/"+str(x)+filename, overwrite=True)
+            y.upload("static/uploads/"+filename, "/Admin123/"+str(x)+filename, overwrite=True)
 
         else:
             msg  = 'Invalid Uplaod only png, jpg, jpeg, gif'
