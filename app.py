@@ -8,6 +8,12 @@ import random
 from PIL import Image
 import time
 import zipfile
+from flask import Flask, flash, request, redirect, url_for, render_template, jsonify
+import os
+from werkzeug.utils import secure_filename
+import urllib.request
+import yadisk
+import random
 y = yadisk.YaDisk(token='y0_AgAAAABjABpGAAteYwAAAAD8h3OKAAAf5oVS6dJNT7ZyxC1l7Vqy124Oug')
 app = Flask(__name__)
 
@@ -105,53 +111,42 @@ def regon():
 
 UPLOAD_FOLDER = 'static/uploads/'
 
-
 app.secret_key = "cairocoders-ednalan"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
  
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'mp4'])
 
 
 
+ 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
+ 
 @app.route('/up')
-def upload_form():
-    return render_template('upload.html')
-
-
+def index11(): 
+    return render_template('index1.html')
+ 
 @app.route('/up', methods=['POST'])
-def upload_image():
-    user_prof = session.get('my_var', None)
-    if 'files[]' not in request.files:
-        flash('No file part')
+def upload():
+    if 'uploadFile[]' not in request.files:
         return redirect(request.url)
-    files = request.files.getlist('files[]')
+    files = request.files.getlist('uploadFile[]')
     file_names = []
     for file in files:
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file_names.append(filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             print(filename)
-            rand = str(random.randint(0, 10000))
-            y.upload("static/uploads/" + filename, "/Admin123/" + user_prof + "_foto" + rand + ".jpg")
-            
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            msg  = 'File successfully uploaded to /static/uploads! он на рендере не выходи'
+            x = random.randint(1,10000)
+
+            y.upload("static/uploads/"+filename, "/"+str(x)+filename, overwrite=True)
+
         else:
-            flash('Allowed image types are -> png, jpg, jpeg, gif')
-            return redirect(request.url)
+            msg  = 'Invalid Uplaod only png, jpg, jpeg, gif'
+    return jsonify({'htmlresponse': render_template('response.html', msg=msg, filenames=file_names)})
 
-    return render_template('upload.html', filenames=file_names)
-
-
-@app.route('/display/<filename>')
-def display_image(filename):
-    # print('display_image filename: ' + filename)
-    return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 if __name__ =='__main__':
     print("hello")

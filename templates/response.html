@@ -1,0 +1,9 @@
+//templates/response.html
+<p><b>{{ msg }}</b></p>
+{% if filenames %}
+    {% for filename in filenames %}
+  <div style="padding:20px;float:left;">
+    <img width="500" src="/static/uploads/{{ filename }}"> 
+  </div>
+    {% endfor %}
+{% endif %}
